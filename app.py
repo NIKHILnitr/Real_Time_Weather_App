@@ -24,7 +24,7 @@ def pred():
     city = request.form['city'] if request.method == 'POST' else 'Burundi'
 
     # API request to get weather data
-    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=bc7304fc3bbef431449cf275e173019c'
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=Enter_your_api'
     # {'units': 'metric'}: This line defines a dictionary PARAMS with request parameters. In this case, it specifies that the units
     # for temperature will be returned in metric units (e.g., Celsius).
     PARAMS = {'units': 'metric'}
@@ -96,8 +96,8 @@ def pred():
     day = datetime.date.today()
 
     # API request to get image URL (for that city)
-    API_KEY = 'AIzaSyC6Lf8X3cEoQ64Bn-kUYAWIDJ3r-6L1idQ'
-    SEARCH_ENGINE_ID = 'd5542edb0660f4835'
+    API_KEY = 'api_key'
+    SEARCH_ENGINE_ID = 'search_id'
     query = f"{city} 1920x1080"
 
     page = 1
@@ -120,10 +120,10 @@ def pred():
 
 # sending report and alert messages notefications
 # Twilio credentials
-account_sid = 'ACb8730cbf379867b9aa9d5182dc6bd159'
-auth_token = '98ef77ac428fc91642ee9ec822563845'
+account_sid = 'ACb8730cbf379867b9aa9d5182dc6bd159909'
+auth_token = '98ef77ac428fc91642ee9ec822563845090'
 client = Client(account_sid, auth_token)
-twilio_phone_number = '+14793480505'
+twilio_phone_number = '+147934805055909'
 def send_report_message(message):
     # Send SMS
     client.messages.create(to="+918328828088", from_=twilio_phone_number, body=message)
@@ -132,7 +132,7 @@ def send_report_message(message):
     client.messages.create(
         from_=twilio_phone_number,
         body=message,
-        to='+918328828088'
+        to='+91phonenumber'
     )
 
 if __name__ == "__main__":
